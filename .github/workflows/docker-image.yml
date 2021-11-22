@@ -19,9 +19,9 @@ jobs:
         DOCKER_USER: ${{secrets.DOCKER_USER}}
         DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
       run: |
-        docker login -u $DOCKER_USER -p $DOCKER_PASSWORD 
+        echo ${{ secrets.DOCKERHUB_PASSWORD }} | docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin 
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag $DOCKER_USER/hello:$(date +%s)
+      run: docker build . --file Dockerfile --tag vidyas16/hello:latest
       
     - name: Docker Push
-      run: docker push $DOCKER_USER:hello
+      run: docker push vidyas16:hello:latest
