@@ -29,3 +29,10 @@ jobs:
           context: .
           push: true
           tags: vidyas16/hello:latest
+          
+      -
+        name: Run
+        uses: addnab/docker-run-action@v3
+        with:
+          image: vidyas16/hello:latest
+          run: echo "hello world"
