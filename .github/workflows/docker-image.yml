@@ -35,4 +35,4 @@ jobs:
         uses: addnab/docker-run-action@v3
         with:
           image: vidyas16/hello:latest
-          options: -v ${{ github.workspace }}:/workspace          
+          options: -it /bin/bash          
